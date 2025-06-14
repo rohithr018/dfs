@@ -1,0 +1,6 @@
+flask==3.0.3
+grpcio==1.62.1
+grpcio-tools==1.62.1
+protobuf==4.25.3
+requests==2.31.0
+uuid==1.30.0

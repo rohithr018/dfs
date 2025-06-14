@@ -59,24 +59,32 @@ const DownloadBox = ({ onClose }) => {
                 <h2 className="text-xl font-semibold mb-4">Download Files</h2>
 
                 {!selectedFile ? (
-                    <ul className="space-y-2">
-                        {sampleFiles.map((file, idx) => (
-                            <li
-                                key={idx}
-                                className="p-3 rounded bg-gray-100 hover:bg-gray-200 cursor-pointer flex justify-between items-center"
-                                onClick={() => {
-                                    setSelectedFile(file);
-                                    setProgress({});
-                                    setStatus('idle');
-                                }}
-                            >
-                                <span className="font-medium">{file.name}</span>
-                                <span className="text-sm text-gray-500">
-                                    {(file.size / 1024 / 1024).toFixed(2)} MB
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+                    <>
+                        <ul className="space-y-2">
+                            {sampleFiles.map((file, idx) => (
+                                <li
+                                    key={idx}
+                                    className="p-3 rounded bg-gray-100 hover:bg-gray-200 cursor-pointer flex justify-between items-center"
+                                    onClick={() => {
+                                        setSelectedFile(file);
+                                        setProgress({});
+                                        setStatus('idle');
+                                    }}
+                                >
+                                    <span className="font-medium">{file.name}</span>
+                                    <span className="text-sm text-gray-500">
+                                        {(file.size / 1024 / 1024).toFixed(2)} MB
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                        <button
+                            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4"
+                            onClick={onClose}
+                        >
+                            Close
+                        </button>
+                    </>
                 ) : (
                     <>
                         {/* File Info */}

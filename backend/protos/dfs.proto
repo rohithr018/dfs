@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package dfs;
+
+service ChunkService {
+    rpc StoreChunk(StoreChunkRequest) returns (StoreChunkResponse);
+    rpc RetrieveChunk(RetrieveChunkRequest) returns (stream ChunkData);
+    rpc DeleteChunk(DeleteChunkRequest) returns (DeleteChunkResponse);
+    rpc HealthCheck(HealthRequest) returns (HealthResponse);
+}
+
+message StoreChunkRequest {
+    string chunk_id = 1;
+    bytes data = 2;
+}
+
+message StoreChunkResponse {
+    string status = 1;
+    string chunk_id = 2;
+}
+
+message RetrieveChunkRequest {
+    string chunk_id = 1;
+}
+
+message ChunkData {
+    bytes data = 1;
+}
+
+message DeleteChunkRequest {
+    string chunk_id = 1;
+}
+
+message DeleteChunkResponse {
+    string status = 1;
+}
+
+message HealthRequest {}
+
+message HealthResponse {
+    string status = 1;
+}

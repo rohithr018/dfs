@@ -21,7 +21,9 @@ Desktop.ini
 .idea/
 *.sublime-workspace
 *.sublime-project
-
+venv/
+# Python-specific
+__pycache__/
 
 # Monorepo frontend/backend ignores
 /frontend/node_modules/
@@ -37,3 +39,7 @@ Desktop.ini
 /backend/.env
 /backend/logs
 /backend/*.log
+
+/backend/distributed_storage/*
+
+
